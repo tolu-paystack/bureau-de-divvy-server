@@ -21,7 +21,7 @@ app.use(logger("dev"))
 app.get("/divvy/subaccounts", (req, res) => {
   const countryCode = req.query.country
 
-  switch (country) {
+  switch (countryCode) {
     case "ng":
       secretKey = process.env.SECRET_KEY_NG
       break
