@@ -23,10 +23,10 @@ app.get("/divvy/subaccounts", (req, res) => {
   let secretKey = ""
 
   switch (country) {
-    case "Nigeria":
+    case "ng":
       secretKey = process.env.SECRET_KEY_NG
       break
-    case "Ghana":
+    case "gh":
       secretKey = process.env.SECRET_KEY_GH
       break
     case "sa":
