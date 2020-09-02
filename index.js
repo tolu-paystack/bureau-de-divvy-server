@@ -13,14 +13,13 @@ const PORT = process.env.PORT
 //   optionsSuccessStatus: 200,
 // }
 
-// app.use(cors(corsOptions))
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(logger("dev"))
 
 app.get("/divvy/subaccounts", (req, res) => {
-  const country = req.query.country
-  let secretKey = ""
+  const countryCode = req.query.country
 
   switch (country) {
     case "ng":
