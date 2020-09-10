@@ -54,7 +54,7 @@ app.post("/divvy/resolve", (req, res) => {
   let secretKey = getKey(country)
 
   fetch(
-    `https://api.paystack.co/resolve?account_number=${accountNumber}&bank_code=${bankCode}`,
+    `https://api.paystack.co/bank/resolve?account_number=${accountNumber}&bank_code=${bankCode}`,
     {
       headers: {
         Authorization: `Bearer ${secretKey}`,
@@ -63,7 +63,7 @@ app.post("/divvy/resolve", (req, res) => {
   )
     .then((response) => response.json())
     .then((resolvedAccount) => res.json(resolvedAccount.data))
-    .catch((error) => res.status(500).end(error))
+    .catch((error) => res.status(500).send(error.message))
 })
 
 app.listen(PORT, () => {
